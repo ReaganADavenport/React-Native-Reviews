@@ -1,23 +1,27 @@
 import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, TextInput} from 'react-native';
 
 export default function App() {
-  const [name, setName] = useState('Shaun');
-  const [person, setPerson] = useState({ name: "Mario", age: 40});
+  const [people, setPeople] = useState([
+    { name: 'shaun', key: '1' },
+    { name: 'yoshi', key: '2' },
+    { name: 'mario', key: '3' },
+    { name: 'luigi', key: '4' },
+    { name: 'peach', key: '5' },
+    { name: 'toad', key: '6' },
+    { name: 'bowser', key: '7' },
+  ]);
   
-  const clickHandler = () => {
-    setName('Chun-Li');
-    setPerson({ name: 'Luigi', age: 45});
-  }
+  
 
   return (
     <View style={styles.container}>
-      <Text>My name is {name}</Text>
-      <Text>His name is {person.name} and he is {person.age} years old</Text>
-      <View style={styles.buttonContainer}>
+      
+
+      {/* <View style={styles.buttonContainer}>
         <Button title="Update State" onPress={clickHandler} color='#fff'/>
-      </View>
+      </View> */}
       <StatusBar style="auto" />
     </View>
   );
@@ -31,9 +35,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  buttonContainer: {
-    backgroundColor: '#54E1F2',
-    borderRadius: 5,
-    marginTop: 20,
-  }
+  // buttonContainer: {
+  //   backgroundColor: '#54E1F2',
+  //   borderRadius: 5,
+  //   marginTop: 20,
+  // }
 });
