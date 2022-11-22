@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput} from 'react-native';
+import { StyleSheet, Text, View, ScrollView} from 'react-native';
 
 export default function App() {
   const [people, setPeople] = useState([
@@ -18,10 +18,14 @@ export default function App() {
   return (
     <View style={styles.container}>
       
+      <ScrollView>
+        { people.map(item => (
+            <View key={item.key}>
+              <Text style={styles.item}>{item.name}</Text>
+            </View>
+          ))}
+      </ScrollView>
 
-      {/* <View style={styles.buttonContainer}>
-        <Button title="Update State" onPress={clickHandler} color='#fff'/>
-      </View> */}
       <StatusBar style="auto" />
     </View>
   );
@@ -31,13 +35,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: 40,
+    paddingHorizontal: 20
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
 
-  // buttonContainer: {
-  //   backgroundColor: '#54E1F2',
-  //   borderRadius: 5,
-  //   marginTop: 20,
-  // }
+  item: {
+    marginTop: 24,
+    padding: 30,
+    backgroundColor: 'pink',
+    fontSize: 24
+  }
 });
