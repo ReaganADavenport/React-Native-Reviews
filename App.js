@@ -1,10 +1,13 @@
 import React, {useState} from 'react';
-import { View } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from '@react-navigation/native';
 
 import Home from './screens/home';
+import ReviewDetails from './screens/reviewDetails';
+
+const Stack = createNativeStackNavigator();
 
 const getFonts = () => Font.loadAsync({
     'lora-regluar': require('./assets/fonts/Lora-Regular.ttf'),
@@ -17,7 +20,18 @@ export default function App() {
 
   if (fontsLoaded){
     return (
-      <Home/>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Home"
+            component={Home}
+          />
+          <Stack.Screen
+            name="Review Details"
+            component={ReviewDetails}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
      );
   } else {
     return(
