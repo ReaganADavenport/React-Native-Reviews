@@ -25,10 +25,18 @@ export default function App() {
           <Stack.Screen
             name="Home"
             component={Home}
+            options={{
+              title: "GameZone",
+              headerStyle: { backgroundColor:'#000'},
+              headerTitleStyle: { color: '#fff'}
+            }}
           />
           <Stack.Screen
             name="Review Details"
             component={ReviewDetails}
+            options={{
+              headerStyle: { backgroundColor:'#eee' },
+            }}
           />
         </Stack.Navigator>
       </NavigationContainer>
